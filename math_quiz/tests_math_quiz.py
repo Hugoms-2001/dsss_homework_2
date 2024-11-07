@@ -1,5 +1,5 @@
 import unittest
-from math_quiz import random_number, random_symbol, operation
+from math_quiz import random_number, random_symbol, generate_operation
 
 
 class TestMathGame(unittest.TestCase):
@@ -18,7 +18,7 @@ class TestMathGame(unittest.TestCase):
             symbol = random_symbol()
             self.assertIn(symbol, ['+', '-', '*'])
 
-    def test_operation(self):
+    def test_generate_operation(self):
         # Test if the function do correctly the operation
         test_cases = [
             (5, 2, '+', '5 + 2', 7),
@@ -29,7 +29,7 @@ class TestMathGame(unittest.TestCase):
         ]
 
         for num1, num2, symbol, expected_problem, expected_solution in test_cases:
-            problem, solution = operation(num1, num2, symbol)
+            problem, solution = generate_operation(num1, num2, symbol)
             self.assertEqual(problem, expected_problem)   # Check if the operation format is correct
             self.assertEqual(solution, expected_solution)     # Check if the solution is correct
 

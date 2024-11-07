@@ -15,15 +15,15 @@ def random_symbol():
     return random.choice(['+', '-', '*'])
 
 
-def operation(number1, number2, symbol):
+def generate_operation(number1, number2, symbol):
     """
     Creates an operation with the numbers and the symbol generates before
     """
-    operation = f"{number1} {symbol} {number2}"
+    problem = f"{number1} {symbol} {number2}"
     if symbol == '+': solution = number1 + number2
     elif symbol == '-': solution = number1 - number2
     else: solution = number1 * number2
-    return operation, solution
+    return problem, solution
 
 def math_quiz():
     """
@@ -42,8 +42,8 @@ def math_quiz():
         symbol = random_symbol()
 
         #Generate the operation and resolves it
-        operation, solution = operation(number1, number2, symbol)
-        print(f"\nQuestion: {operation}")
+        problem, solution = generate_operation(number1, number2, symbol)
+        print(f"\nQuestion: {problem}")
 
         # Error handling for user input
         try:
